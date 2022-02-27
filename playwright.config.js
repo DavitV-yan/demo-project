@@ -37,7 +37,7 @@ const config = {
     /*  locale: 'fr-FR',
     geolocation: { longitude: 48.858455, latitude: 2.294474 },
     permissions: ['geolocation'],*/
-    baseURL: 'http://localhost:3000',
+    //baseURL: 'http://localhost:3000',
     headless: false,
     /* Maximum time each action such as `click()` can take. Defaults to 0 (no limit). */
     actionTimeout: 0,
@@ -74,25 +74,33 @@ const config = {
     // },
 
     /* Test against mobile viewports. */
-    {
-    name: 'iPhone 13',
-      use: {
-        browserName: "chromium",
-        ...devices['iPhone 13'],
-      },
-    },
+    // {
+    // name: 'iPhone 13',
+    //   use: {
+    //     browserName: "chromium",
+    //     ...devices['iPhone 13'],
+    //   },
+    // },
+    //   {
+    //     name: 'Galaxy S9+',
+    //     use: {
+    //       browserName: 'chromium',
+    //       ...devices["Galaxy S9+"],
+    //     },
+    //   },
+    //   {
+    //     name: 'iPhone 13',
+    //     use: {
+    //       browserName: 'webkit',
+    //       ...devices["iPhone 13"]
+    //     }
+    //   },
       {
-        name: 'Galaxy S9+',
+        name: "Firefox device",
         use: {
-          browserName: 'chromium',
-          ...devices["Galaxy S9+"],
-        },
-      },
-      {
-        name: 'iPhone 13',
-        use: {
-          browserName: 'webkit',
-          ...devices["iPhone 13"]
+          browserName: 'firefox',
+          ...devices["Desktop Firefox"],
+          viewport: { 'width': 450, 'height': 700 }
         }
       }
 
