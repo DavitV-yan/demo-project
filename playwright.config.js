@@ -38,7 +38,7 @@ const config = {
     geolocation: { longitude: 48.858455, latitude: 2.294474 },
     permissions: ['geolocation'],*/
     baseURL: 'http://localhost:3000',
-    headless: true,
+    headless: false,
     /* Maximum time each action such as `click()` can take. Defaults to 0 (no limit). */
     actionTimeout: 0,
     /* Base URL to use in actions like `await page.goto('/')`. */
