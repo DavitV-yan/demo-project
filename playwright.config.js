@@ -33,13 +33,21 @@ const config = {
   reporter: 'html',
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
+
+    /*  locale: 'fr-FR',
+    geolocation: { longitude: 48.858455, latitude: 2.294474 },
+    permissions: ['geolocation'],*/
+    baseURL: 'http://localhost:3000',
+    headless: true,
     /* Maximum time each action such as `click()` can take. Defaults to 0 (no limit). */
     actionTimeout: 0,
     /* Base URL to use in actions like `await page.goto('/')`. */
     // baseURL: 'http://localhost:3000',
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
-    trace: 'on-first-retry',
+    trace: 'retain-on-failure',
+    screenshot: 'only-on-failure',
+    video: 'on-first-retry',
   },
 
   /* Configure projects for major browsers */
@@ -67,17 +75,26 @@ const config = {
 
     /* Test against mobile viewports. */
     {
-      name: 'Mobile Chrome',
+    name: 'iPhone 13',
       use: {
-        ...devices['Pixel 5'],
-      },
-    },
-    {
-      name: 'Mobile Safari',
-      use: {
+        browserName: "chromium",
         ...devices['iPhone 13'],
       },
     },
+      {
+        name: 'Galaxy S9+',
+        use: {
+          browserName: 'chromium',
+          ...devices["Galaxy S9+"],
+        },
+      },
+      {
+        name: 'iPhone 13',
+        use: {
+          browserName: 'webkit',
+          ...devices["iPhone 13"]
+        }
+      }
 
     /* Test against branded browsers. */
     // {
