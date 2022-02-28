@@ -20,7 +20,7 @@ test.describe("Change odds format tests", () => {
     test('Change odds format to American', async({page}) => {
         await page.locator("[data-testid='selectLabel']").last().click();
         await page.locator("[data-value='odds_american']").click();
-        await (await expect(page.locator(".marketContainer > div > span").first()).toContainText('+' || '-'));
+        await (await expect(page.locator(".marketContainer > div > span").first()).toContainText(/[-+]/));
     })
 
     test('Change odds format to Hongkong', async({page}) => {
@@ -32,13 +32,13 @@ test.describe("Change odds format tests", () => {
     test('Change odds format to Malay', async({page}) => {
         await page.locator("[data-testid='selectLabel']").last().click();
         await page.locator("[data-value='odds_malay']").click();
-        await expect(page.locator(".marketContainer > div > span").first()).toContainText('.' || '-');
+        await expect(page.locator(".marketContainer > div > span").first()).toContainText(/[.-]/);
     })
 
     test('Change odds format to Indo', async({page}) => {
         await page.locator("[data-testid='selectLabel']").last().click();
         await page.locator("[data-value='odds_indo']").click();
-        await expect(page.locator(".marketContainer > div > span").first()).toContainText('.' || '-');
+        await expect(page.locator(".marketContainer > div > span").first()).toContainText(/[.-]/);
     })
 
 

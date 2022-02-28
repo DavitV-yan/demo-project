@@ -1,5 +1,5 @@
 // @ts-check
-const { devices } = require('@playwright/test');
+const { devices } = require("@playwright/test");
 
 /**
  * Read environment variables from file.
@@ -7,13 +7,12 @@ const { devices } = require('@playwright/test');
  */
 // require('dotenv').config();
 
-
 /**
  * @see https://playwright.dev/docs/test-configuration
  * @type {import('@playwright/test').PlaywrightTestConfig}
  */
 const config = {
-  testDir: './tests',
+  testDir: "./tests",
   /* Maximum time one test can run for. */
   timeout: 30 * 1000,
   expect: {
@@ -21,7 +20,7 @@ const config = {
      * Maximum time expect() should wait for the condition to be met.
      * For example in `await expect(locator).toHaveText();`
      */
-    timeout: 5000
+    timeout: 5000,
   },
   /* Fail the build on CI if you accidentally left test.only in the source code. */
   forbidOnly: !!process.env.CI,
@@ -30,24 +29,23 @@ const config = {
   /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: 'html',
+  reporter: "html",
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
-
     /*  locale: 'fr-FR',
     geolocation: { longitude: 48.858455, latitude: 2.294474 },
     permissions: ['geolocation'],*/
     //baseURL: 'http://localhost:3000',
-    headless: false,
+    headless: true,
     /* Maximum time each action such as `click()` can take. Defaults to 0 (no limit). */
     actionTimeout: 0,
     /* Base URL to use in actions like `await page.goto('/')`. */
     // baseURL: 'http://localhost:3000',
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
-    trace: 'retain-on-failure',
-    screenshot: 'only-on-failure',
-    video: 'on-first-retry',
+    trace: "retain-on-failure",
+    screenshot: "only-on-failure",
+    video: "on-first-retry",
   },
 
   /* Configure projects for major browsers */
@@ -74,35 +72,35 @@ const config = {
     // },
 
     /* Test against mobile viewports. */
+    {
+      name: "iPhone 13",
+      use: {
+        browserName: "chromium",
+        ...devices["iPhone 13"],
+      },
+    },
     // {
-    // name: 'iPhone 13',
+    //   name: "Galaxy S9+",
     //   use: {
     //     browserName: "chromium",
-    //     ...devices['iPhone 13'],
+    //     ...devices["Galaxy S9+"],
     //   },
     // },
-    //   {
-    //     name: 'Galaxy S9+',
-    //     use: {
-    //       browserName: 'chromium',
-    //       ...devices["Galaxy S9+"],
-    //     },
+    // {
+    //   name: "iPhone 13",
+    //   use: {
+    //     browserName: "webkit",
+    //     ...devices["iPhone 13"],
     //   },
-    //   {
-    //     name: 'iPhone 13',
-    //     use: {
-    //       browserName: 'webkit',
-    //       ...devices["iPhone 13"]
-    //     }
+    // },
+    // {
+    //   name: "Firefox with mobile size",
+    //   use: {
+    //     browserName: "firefox",
+    //     ...devices["Desktop Firefox"],
+    //     viewport: { width: 450, height: 700 },
     //   },
-      {
-        name: "Firefox device",
-        use: {
-          browserName: 'firefox',
-          ...devices["Desktop Firefox"],
-          viewport: { 'width': 450, 'height': 700 }
-        }
-      }
+    // },
 
     /* Test against branded browsers. */
     // {
