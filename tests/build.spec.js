@@ -14,7 +14,7 @@ test.describe.parallel("Login tests", () => {
     await userDashboardPage.fillEmailField();
     await userDashboardPage.fillPasswordField();
     await userDashboardPage.clickOnLoginBtn();
-    await expect(page.locator(username)).toHaveText("D..");
+    await expect(page.locator(username)).toHaveText("D.");
     await userDashboardPage.clickOnUserAvatar();
     await userDashboardPage.clickOnLogout();
   });
