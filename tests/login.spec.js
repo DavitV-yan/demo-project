@@ -1,6 +1,6 @@
 const { test, expect } = require("@playwright/test");
 
-test.describe("Login tests", () => {
+test.describe.parallel("Login tests", () => {
   test.beforeEach(async ({ page }) => {
     await page.goto("http://localhost:3000/");
   });

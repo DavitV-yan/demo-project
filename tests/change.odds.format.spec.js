@@ -1,6 +1,6 @@
 const { test, expect } = require("@playwright/test");
 
-test.describe("Change odds format tests", () => {
+test.describe.parallel("Change odds format tests", () => {
     test.beforeEach(async ({ page }) => {
       await page.goto("http://localhost:3000/sport/Soccer/Spain/545");
     });

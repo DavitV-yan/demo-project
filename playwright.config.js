@@ -32,11 +32,11 @@ const config = {
   reporter: "html",
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
-    /*  locale: 'fr-FR',
-    geolocation: { longitude: 48.858455, latitude: 2.294474 },
-    permissions: ['geolocation'],*/
+    // locale: "fa-fa",
+    // geolocation: { latitude: 63.255263, longitude: -93.3183147 },
+    // permissions: ["geolocation"],
     //baseURL: 'http://localhost:3000',
-    headless: true,
+    headless: false,
     /* Maximum time each action such as `click()` can take. Defaults to 0 (no limit). */
     actionTimeout: 0,
     /* Base URL to use in actions like `await page.goto('/')`. */
@@ -44,18 +44,17 @@ const config = {
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: "retain-on-failure",
-    screenshot: "only-on-failure",
-    video: "on-first-retry",
+    video: "retain-on-failure",
   },
 
   /* Configure projects for major browsers */
   projects: [
-    // {
-    //   name: 'chromium',
-    //   use: {
-    //     ...devices['Desktop Chrome'],
-    //   },
-    // },
+    {
+      name: "chromium",
+      use: {
+        ...devices["Desktop Chrome"],
+      },
+    },
 
     // {
     //   name: 'firefox',
@@ -72,13 +71,13 @@ const config = {
     // },
 
     /* Test against mobile viewports. */
-    {
-      name: "iPhone 13",
-      use: {
-        browserName: "chromium",
-        ...devices["iPhone 13"],
-      },
-    },
+    // {
+    //   name: "iPhone 13",
+    //   use: {
+    //     browserName: "chromium",
+    //     ...devices["iPhone 13"],
+    //   },
+    // },
     // {
     //   name: "Galaxy S9+",
     //   use: {
