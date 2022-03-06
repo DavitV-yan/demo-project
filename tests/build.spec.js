@@ -1,11 +1,9 @@
 const { test, expect } = require("@playwright/test");
 const { MainPage } = require("../pages/MainPage");
 const { UserDashboardPage, username } = require("../pages/UserDashboardPage");
+const {baseTest} =require('./base.spec');
 
 test.describe.parallel("Login tests", () => {
-  test.beforeEach(async ({ page }) => {
-    await page.goto("https://buildern.com/");
-  });
 
   test("test", async ({ page }) => {
     const mainPage = new MainPage(page);
